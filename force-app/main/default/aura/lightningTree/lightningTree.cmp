@@ -1,0 +1,54 @@
+<aura:component controller = "AccountControler" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="picId" type="Id" />
+    <aura:attribute name="openmodel" type="boolean"/>
+    <aura:attribute name="PictureList" type="Picture_Field__c[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+    <lightning:card iconName="standard:work_capacity_usage" title="Related Picturs(Aura)">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="File Name">Picture Name</div>
+                    </th>
+                    <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="File Name">Piture</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration  items="{!v.PictureList}" var="con">
+                    <tr class="slds-hint-parent">
+                        <td data-label="File Name">
+                            <div class="slds-truncate" title="File Name">{!con.Name}</div>
+                        </td>
+                        <td data-label="File Name">
+                            <img class="slds-truncate" src="{!con.Picture_Url__c}" alt="User avatar" onclick="{!c.PerformAction}" />
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </lightning:card>
+    <aura:If isTrue="{!v.openmodel}">
+        <div aura:id="editDialog" role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open slds-modal_small slds-backdrop ">
+            <div class="slds-modal__container ">
+                <div class="slds-modal__header">
+                    <h2 class="slds-text-heading--medium">Modal Popup with button click</h2>
+                    <button class="slds-button slds-modal__close slds-button--icon" title="Close" onclick="{!c.closeModal}">
+                        <lightning:icon iconName="utility:close" size="medium" />
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium slds-grid slds-wrap " style="height:400px;" >
+                    <!--  Write Your Content here  -->
+                    
+                    <div class="slds-size--1-of-2 slds-large-size--1-of-2 ">
+                        <c:picRecordEdit recordId="{!v.picId}"/>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aura:If>
+</aura:component>

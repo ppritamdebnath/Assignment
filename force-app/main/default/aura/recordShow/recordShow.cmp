@@ -1,0 +1,13 @@
+<aura:component controller = "AccountControler" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+<aura:attribute name="recordList" type="List"  />  
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+<Lightning:card>
+            Newly Created Record Will Show Here
+            <aura:iteration  items="{!v.recordList}" var="con2" >
+                {!con2.LastName}  <!-- oninput="{!c.fetchLastName}" -->
+                </aura:iteration>
+        <div class="slds-col slds-size_12-of-12">
+            <c:recordCreateComponent aura:id="showViewDetails"/>
+        </div>
+    </Lightning:card>
+</aura:component>

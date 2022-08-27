@@ -1,0 +1,16 @@
+<apex:page standardController="account" >
+    <apex:includeLightning />
+    <div  id="LightningCompContainer" />
+   
+    <script>
+        $Lightning.use("c:LightningCompForVFAPP", function() {
+            $Lightning.createComponent("c:LightningCompForVF", {
+            },
+            "LightningCompContainer",
+            function(component) {
+               component.set("v.AccIDFromVfPage",'ABCD');
+            });
+        });
+ 
+    </script>
+</apex:page>

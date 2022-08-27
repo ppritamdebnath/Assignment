@@ -1,0 +1,16 @@
+<apex:page >  
+    <apex:includeLightning />
+    <div id="lightningLocator"> 
+    </div>
+    <script>
+        
+      $Lightning.use("c:editFrom", function() {
+        $Lightning.createComponent("c:recordEditFrom",                          
+                                    {},
+                                    "lightningLocator", // domLocator                                                             
+                                    function(component) {
+                                      component.set("v.AccIDFromVfPage",'0015i0000053JgJAAU');
+                                    });
+      });
+    </script>
+</apex:page>

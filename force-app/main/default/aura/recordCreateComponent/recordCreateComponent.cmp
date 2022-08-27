@@ -1,0 +1,49 @@
+<aura:component controller = "AccountControler" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:method name="GetMessageFromChildMethod" action="{!c.getMessage}" 
+                 access="public">
+        <!-- //<aura:attribute name="Name" type="String" default="Amit"/> -->
+    </aura:method>
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="oppname" type="String"/>
+    <aura:attribute name="contacts" type="List" />
+    <aura:attribute name="ObjectList" type="List" />
+    <aura:attribute name="recNumber" type="String" />
+    <aura:attribute name="requiredFieldList" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}" />    
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <c:chooseAccount onmyeventdemo="{!c.getValueFromLwc}"/>
+        </div>
+        
+        <div class="slds-col">
+            <Lightning:card>
+                <lightning:layout>
+                    <lightning:combobox 
+                            name="progress" 
+                            label="Related Objects" 
+                            value="" 
+                            placeholder="Select Object" 
+                            options="{! v.ObjectList }" 
+                            onchange="{! c.handleClick }"/>
+                <br/>
+                <!-- {!v.fooMap.LastName} -->
+                <aura:iteration  items="{!v.requiredFieldList}" var="con2" >
+                     <lightning:input  name="{!con2.key}" value="" label="{!con2.key}" type="{!con2.value}" aura:id="inputs"/>  <!-- oninput="{!c.fetchLastName}" -->
+                </aura:iteration><br/>
+                <lightning:select aura:id="select" name="select" label="Select the number of record" onchange="{! c.onChange }">
+                    <option value="">choose one...</option>
+                    <option value="1">one</option>
+                    <option value="2">two</option>
+                    <option value="3">three</option>
+                </lightning:select><br/>
+                <lightning:input  name="input1" label="Account Id" type="String" value="{!v.recordId}" />
+                <lightning:button variant="brand" label="Create" title="Create action" onclick="{! c.handleCreate }" />
+                </lightning:layout>
+                
+            </Lightning:card>
+        </div>
+    </div>
+</aura:component>
+
+
+<!-- 500227974953 -->

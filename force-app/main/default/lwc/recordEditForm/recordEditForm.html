@@ -1,0 +1,15 @@
+<template>
+    <lightning-record-edit-form record-id={recordId} object-api-name="Picture_Fields__r"
+            onsuccess={handleSuccess} onsubmit ={handleSubmit}>
+        <lightning-messages>
+        </lightning-messages>
+        <lightning-output-field field-name="Account">
+        </lightning-output-field>
+        <lightning-input-field field-name="Name">
+        </lightning-input-field>
+        <lightning-input-field field-name="Picture_Url__c">
+        </lightning-input-field>
+        <lightning-button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update">
+        </lightning-button>
+    </lightning-record-edit-form>
+</template>

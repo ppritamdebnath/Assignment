@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Component B" icon-name="custom:custom29">
+        <div>
+            <h1>Component B (Subscriber)</h1>
+            <br/>
+            Value obtained from component A 
+            <br/>
+            <b>{valueGotFromA}</b>
+        </div>
+    
+        <div>
+            <h1>Component B (Publisher)</h1>
+            <br/>
+            <lightning-input type="text" label="Enter some text" onchange={sendDataToComponentA}></lightning-input>
+        </div>
+    </lightning-card>
+    
+</template>

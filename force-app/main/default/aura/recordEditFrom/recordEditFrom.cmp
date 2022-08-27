@@ -1,0 +1,56 @@
+<aura:component controller="recordTypeControler" implements="force:hasRecordId,lightning:actionOverride,lightning:hasPageReference,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="sObjectName" type="String"/> 
+    <aura:attribute name="recordType" type="String"/>  
+    <aura:attribute name="recordType1" type="String"/> 
+    <aura:attribute name="AccIDFromVfPage" type="string"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card title="{! 'New '+v.sObjectName}">
+        <div class="slds-p-left_large slds-p-right_medium"> 
+            <lightning:recordEditForm
+                onsubmit="{!c.handleSubmit}"
+                objectApiName="{!v.sObjectName}"
+                recordTypeId="{!v.recordType}">
+                <lightning:messages />
+                <lightning:inputField fieldName="Name" aura:id="Name"/>
+                <lightning:inputField fieldName="Type" aura:id="Type"/>
+                <lightning:inputField fieldName="Phone" aura:id="Phone"/>
+                <lightning:inputField fieldName="CurrencyIsoCode" aura:id="CurrencyIsoCode"/>
+                <lightning:inputField fieldName="Rating" aura:id="Rating"/>
+                <lightning:inputField fieldName="ParentId" aura:id="ParentId" value="{!v.AccIDFromVfPage}"/> 
+                <div class="slds-m-top_medium">
+                    <lightning:button variant="brand" type="submit" name="save" label="Save" />
+                </div>
+            </lightning:recordEditForm>
+        </div>
+    </lightning:card>
+</aura:component>
+
+
+
+<!-- ({
+    doInit : function(component, event, helper){
+        component.set("v.sObjectName", 'Account');
+        var accIdFromVf=component.get("v.AccIDFromVfPage");
+        component.set("v.ParentId", accIdFromVf);
+    },
+    handleSubmit : function(component, event, helper) {
+        var recrdTypeId = $A.get("$Label.c.Customer_Account");
+        component.set("v.recordType", recrdTypeId);
+    },
+    handleSuccess : function(component, event, helper) {
+	    
+	//Redirect to detail page on success
+        // var toastEvent = $A.get("e.force:showToast");
+        // toastEvent.setParams({
+        //     title : 'Success',
+        //     message: 'Your record Is Created Successfully',
+        //     duration:' 5000',
+        //     key: 'info_alt',
+        //     type: 'success',
+        //     mode: 'pester'
+        // });
+        // toastEvent.fire();
+    }
+})
+component.find('Name').set('v.value', 'Tushar Sharma');
+ -->

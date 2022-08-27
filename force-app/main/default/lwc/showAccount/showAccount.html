@@ -1,0 +1,48 @@
+<template>
+    <lightning-card
+        title="Choose Account"
+        icon-name="custom:custom63"
+    >
+        <div class="slds-var-m-around_medium">
+            <lightning-layout
+                vertical-align="end"
+                class="slds-var-m-bottom_small"
+            >
+                <lightning-layout-item flexibility="grow">
+                    <lightning-record-edit-form
+                                                object-api-name="Account"
+                                                onchange={handleKeyChange}
+                                                value={searchKey}>
+                
+            <lightning-input-field field-name="Type" ></lightning-input-field>
+                </lightning-record-edit-form>
+                </lightning-layout-item>
+
+                <lightning-layout-item flexibility="grow">
+                    <lightning-record-edit-form
+                                                object-api-name="Account"
+                                                onchange={handleKeyChange2}
+                                                value={searchKey2}>
+                
+            <lightning-input-field field-name="Create_Date__c" ></lightning-input-field>
+                </lightning-record-edit-form>
+                </lightning-layout-item>
+            </lightning-layout>
+            <template if:true={accounts}>
+                Accounts:-
+                <!-- <template for:each={accounts} for:item="account"> -->
+                    <lightning-combobox
+                    label="Select a Account"
+                    options={accounts}
+                    value={value}
+                    onchange={handleRecordSelected}
+                    field-level-help="Only the first ten records are displayed to keep it simple"
+                    class="slds-var-m-bottom_medium"
+                    required
+                ></lightning-combobox>
+
+            </template>    
+        </div>
+    </lightning-card>
+    
+</template>

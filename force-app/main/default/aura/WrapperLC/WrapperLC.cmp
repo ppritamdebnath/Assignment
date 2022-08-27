@@ -1,0 +1,72 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+access="global" 
+controller="wrapperClassController">
+    <aura:method name="GetMessageFromChildMethod" action="{!c.getMessage}" 
+                 access="public">
+        <aura:attribute name="Name" type="String" default="Amit"/>
+    </aura:method>
+    <aura:handler action="{!c.getEvents}" event="c:ParentChildEvent" />
+    <aura:attribute name="childValue" type="String" />
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="columns1" type="List"/>
+    <aura:attribute name="columnsForAccount" type="List"/>
+    <aura:attribute name="columnsForLead" type="List"/>
+    <aura:attribute name="accountList" type="Object"/>
+    <aura:attribute name="contactList" type="Object"/>
+    <aura:attribute name="leadList" type="Object"/>
+    <aura:attribute name="opportunityList" type="Object"/> 
+    <aura:attribute name="selectedAccts" type="List"/>
+    <aura:if isTrue="{!v.childValue}">
+        <div style="height: 300px">
+            <aura:if isTrue="{!v.leadList}">
+                <lightning:datatable
+                    columns="{! v.columnsForLead }"
+                    data="{! v.leadList }"
+                    keyField="id"
+                    onrowselection="{! c.updateSelectedText }"
+                    errors="{! v.errors }"
+                    draftValues="{! v.draftValues }"
+                    onsave="{! c.handleSaveEdition }"
+    
+                />
+            </aura:if>
+            <aura:if isTrue="{!v.accountList}">
+                <lightning:datatable
+                    columns="{! v.columnsForAccount }"
+                    data="{! v.accountList }"
+                    keyField="id"
+                    onrowselection="{! c.updateSelectedText }"
+                    errors="{! v.errors }"
+                    draftValues="{! v.draftValues }"
+                    onsave="{! c.handleSaveEdition }"
+    
+                />
+            </aura:if>
+            <aura:if isTrue="{!v.contactList}">
+                <lightning:datatable
+                columns="{! v.columns1 }"
+                data="{! v.contactList }"
+                keyField="id"
+                onrowselection="{! c.updateSelectedText }"
+                errors="{! v.errors }"
+                draftValues="{! v.draftValues }"
+                onsave="{! c.handleSaveEdition }"
+                
+                />
+            </aura:if>
+            <aura:if isTrue="{!v.opportunityList}">
+                <lightning:datatable
+                    columns="{! v.columns }"
+                    data="{! v.opportunityList }"
+                    keyField="id"
+                    onrowselection="{! c.updateSelectedText }"
+                    errors="{! v.errors }"
+                    draftValues="{! v.draftValues }"
+                    onsave="{! c.handleSaveEdition }"
+    
+                />
+            </aura:if>
+        </div>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,44 @@
+<template>
+
+    <div class="slds-col slds-size_12-of-12">
+        <c-pic-and-cont onselect={showContact}></c-pic-and-cont>
+      </div>
+    <lightning-card title="ContactInfo" icon-name="custom:custom30">
+        <template if:true={contacts}>
+            <div class="slds-align_absolute-center">
+                <div class="slds-var-m-around_medium slds-text-align_center">
+                    <template for:each={contacts} for:item="contact">
+                        <p key={contact.Id}>
+                            {contact.Name}<br/>
+                            {contact.Title}<br/>
+                           
+                                <lightning-formatted-phone
+                                    value={contact.Phone}
+                                ></lightning-formatted-phone><br/>
+                                <lightning-formatted-phone
+                                value={contact.Email}
+                            ></lightning-formatted-phone><br/>
+  
+                        </p>
+                    </template>
+                    
+                    <!-- <p> {name}</p>
+                    <p>{title}</p>
+                    <p>
+                        <lightning-formatted-phone
+                            value={phone}
+                        ></lightning-formatted-phone>
+                    </p>
+                    <p>
+                        <lightning-formatted-email
+                            value={email}
+                        ></lightning-formatted-email>
+                    </p> -->
+                </div>
+            </div>
+        </template>
+        
+
+        
+    </lightning-card>
+</template>

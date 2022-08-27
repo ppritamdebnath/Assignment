@@ -1,0 +1,74 @@
+<template>
+    <lightning-card title='Custom Table' icon-name="custom:custom11">
+        <!-- {terFileData.title}
+        {terFileData.titlee}
+        <template for:each={terFileData.sections} for:item="sectionItem" for:index="index">
+            {sectionItem.sectionNum}
+            {sectionItem.secNUm}
+             {sectionItem.sectionNum.header.columns.label} 
+        </template> -->
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="select-01">
+              <abbr class="slds-required" title="required">* </abbr>Select Type</label>
+            <div class="slds-form-element__control">
+              <div class="slds-select_container">
+                <select class="slds-select" id="select-01" required="" onchange={takeinputtype}>
+                  <option value="">Select…</option>
+                  <option value="Hot">Hot</option>
+                  <option value="Cold">Cold</option>
+                  <option value="Normal">Normal</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="select-01">
+              <abbr class="slds-required" title="required">* </abbr>Select Age</label>
+            <div class="slds-form-element__control">
+              <div class="slds-select_container">
+                <select class="slds-select" id="select-02" required="" onchange={takeinputage}>
+                  <option value="">Select…</option>
+                  <option value="Below 20">Below 20</option>
+                  <option value="20-25" >20 - 25</option>
+                  <option value="MoreThan25">More Than 25</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="select-01">
+              <abbr class="slds-required" title="required">* </abbr>Select Gender</label>
+            <div class="slds-form-element__control">
+              <div class="slds-select_container">
+                <select class="slds-select" id="select-03" required="" onchange={takeinputgender}>
+                  <option value="">Select…</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="select-01">
+              <abbr class="slds-required" title="required">* </abbr>Select Place</label>
+            <div class="slds-form-element__control">
+              <div class="slds-select_container">
+                <select class="slds-select" id="select-04" required="" onchange={takeinputplace}>
+                  <option value="">Select…</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <lightning-button variant="brand" label="Brand" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+          <template for:each={accounts} for:item="account">
+            <p key={contact.Names}>
+                {account.Name}<br/>
+
+            </p>
+        </template>
+    </lightning-card>
+    
+</template>

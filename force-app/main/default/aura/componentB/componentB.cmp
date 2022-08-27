@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global">
+    <aura:registerevent name="componentEventFired" type="c:communicationEvent" /> <!-- Event is being register in child component-->
+    <aura:attribute name="mess1" type="String" />
+    <aura:handler  action="{!c.handleEvent}" event="c:communicationEvent" /> <!-- Handler for custom event -->
+    <aura:attribute name="ParentAttribute" type="String" /> <!-- Attribute of parent component -->
+    <lightning:card title="Component B(AURA)" iconName="custom:custom30">
+        The Value from component A is {!v.ParentAttribute}
+
+        <lightning:input name="input1" label="Enter Value for component A" value="{!v.mess1}" aura:id="inputs" onchange="{!c.fireComponentEvent1}"/>
+    </lightning:card>
+    
+
+</aura:component>

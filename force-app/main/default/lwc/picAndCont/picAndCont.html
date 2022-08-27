@@ -1,0 +1,32 @@
+<template>
+
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <c-show-account onmyeventdemo={handleChangeAction}></c-show-account>
+        </div>
+        <div class="slds-col">
+            <lightning-card title="ContactSelector" icon-name="custom:custom29">
+                <div class="slds-card__body slds-card__body_inner">
+                    <template if:true={pictureList}>
+                        Picture:-
+                        <template for:each={pictureList} for:item="picture">
+                            <p key={picture.Id}>
+                                <img src={picture.Picture_Url__c} height=50px; width=50px; />
+                            </p>
+                        </template>
+                    </template>
+                    <template if:true={contactOptions}>
+                        <lightning-combobox
+                            label="Select a Contact"
+                            options={contactOptions}
+                            value={value}
+                            onchange={handleContactSelected}
+                            class="slds-var-m-bottom_medium"
+                            required
+                        ></lightning-combobox>
+                    </template>
+                </div>
+            </lightning-card>
+        </div>
+      </div>
+</template>

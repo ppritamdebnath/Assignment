@@ -1,0 +1,16 @@
+<aura:component implements="force:hasRecordId,lightning:actionOverride,lightning:hasPageReference,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes">
+    <aura:attribute type="string" name="phone" />
+    <aura:attribute type="string" name="email" />  
+    <lightning:card title="Phone Number">
+        <lightning:input type="phone" pattern="^[\+]?[0-9]{6,15}$" 
+        messageWhenPatternMismatch="Phone number is not valid Ex:- +123456 Minimum 6 Maximum 16"  
+        value="{!v.phone}" maxlength="16" minlength="6" label="Enter a number"/>
+
+
+        <lightning:input type="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+?(?:\.com|\.org|\.co\.uk|\.org\.uk)$"
+                messageWhenPatternMismatch="Only . com mail support"  
+                value="{!v.email}" label="Enter a Email"/>      
+        <lightning:button variant="brand" label="Submit" title="Brand action" onclick="{! c.handleClick }" />  
+    </lightning:card> 
+             
+</aura:component>

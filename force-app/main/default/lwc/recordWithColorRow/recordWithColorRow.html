@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title='Custom Table' icon-name="custom:custom11">
+        <table class="slds-table_bordered ">  <!-- class="slds-table  " -->
+            <thead>
+                <tr class="slds-line-height_reset">
+                  <th class="" scope="col">
+                    <div class="slds-truncate" title="Account Name">Account Name</div>
+                  </th>
+                   <th class="" scope="col">
+                    <div class="slds-truncate" title="Phone">Phone</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <template for:each={records} for:item="elem">
+                    <tr key={elem.id} class="row slds-var-p-around_small">
+                        <td data-label="Account Name">
+                            <div >
+                                {elem.Name}
+                            </div>
+                        </td>
+                        <td data-label="Phone">
+                            <div >
+                                {elem.Phone}
+                            </div>
+                        </td>
+                    </tr>
+                    
+                </template>
+            </tbody>
+        </table>
+
+        
+    </lightning-card>
+</template>

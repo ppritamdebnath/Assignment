@@ -1,0 +1,148 @@
+<template>
+    <lightning-card title='Custom Table' icon-name="custom:custom11">
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="select-01">
+              <abbr class="slds-required" title="required">* </abbr>Select Type</label>
+            <div class="slds-form-element__control">
+              <div class="slds-select_container">
+                <select class="slds-select" id="select-01" required="" onchange={takeinputtype}>
+                  <option value="">Select…</option>
+                  <option value="Hot">Hot</option>
+                  <option value="Cold">Cold</option>
+                  <option value="Normal">Normal</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="select-01">
+              <abbr class="slds-required" title="required">* </abbr>Select Age</label>
+            <div class="slds-form-element__control">
+              <div class="slds-select_container">
+                <select class="slds-select" id="select-02" required="" onchange={takeinputage}>
+                  <option value="">Select…</option>
+                  <option value="Below 20">Below 20</option>
+                  <option value="20-25" >20 - 25</option>
+                  <option value="More Than 25">More Than 25</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="select-01">
+              <abbr class="slds-required" title="required">* </abbr>Select Gender</label>
+            <div class="slds-form-element__control">
+              <div class="slds-select_container">
+                <select class="slds-select" id="select-03" required="" onchange={takeinputgender}>
+                  <option value="">Select…</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="select-01">
+              <abbr class="slds-required" title="required">* </abbr>Select Place</label>
+            <div class="slds-form-element__control">
+              <div class="slds-select_container">
+                <select class="slds-select" id="select-04" required="" onchange={takeinputplace}>
+                  <option value="">Select…</option> 
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <lightning-button variant="brand" label="Show Record" title="Show Record" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+          <thead>
+              <tr class="slds-line-height_reset">
+                  <th class="" scope="col">
+                      <div class="slds-truncate" >
+                          Name
+      
+                      </div>
+                  </th>
+                  <th class="" scope="col">
+                      <div class="slds-truncate" >
+                          Age
+      
+                      </div>
+                  </th>
+                  <th class="" scope="col">
+                      <div class="slds-truncate" >
+                          Type
+      
+                      </div>
+                  </th>
+                  <th class="" scope="col">
+                      <div class="slds-truncate" >
+                          Gender
+      
+                      </div>
+                  </th>
+                  <th class="" scope="col">
+                    <div class="slds-truncate" >
+                        Place
+    
+                    </div>
+                </th>
+              </tr>
+          </thead>
+          <tbody>
+            <template for:each={fiterdAccount} for:item="account">
+              <tr class="slds-hint-parent" key={account.id}>
+                <th data-label="" scope="row">
+                    <div class="slds-truncate" >
+                      
+                        <p>
+                            {account.Name}<br/>
+                        </p>
+                    
+                    </div>
+                </th>
+                <th data-label="" scope="row">
+                    <div class="slds-truncate" >
+         
+                        <p >
+                            {account.Age}<br/>
+                        </p>
+                    
+                    </div>
+                </th>
+                <th data-label="" scope="row">
+                    <div class="slds-truncate" >
+                      
+                        <p>
+                            {account.Type}<br/>
+                        </p>
+                    
+                    </div>
+                </th>
+                <th data-label="" scope="row">
+                    <div class="slds-truncate" >
+                   
+                        <p>
+                            {account.Gender}<br/>
+                        </p>
+                 
+                    </div>
+                </th>
+                <th data-label="" scope="row">
+                  <div class="slds-truncate" >
+                    
+                      <p>
+                          {account.Place}<br/>
+                      </p>
+                 
+                  </div>
+              </th>
+            </tr>
+            </template>
+              
+          </tbody> 
+      </table>
+    </lightning-card>
+</template>

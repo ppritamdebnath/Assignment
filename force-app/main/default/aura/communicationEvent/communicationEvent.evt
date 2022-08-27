@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Sample Component Event">
+    <aura:attribute name="message" type="String" default="Hello World!!" />
+    <aura:attribute name="message1" type="String" default="Hello World!!" />
+</aura:event>

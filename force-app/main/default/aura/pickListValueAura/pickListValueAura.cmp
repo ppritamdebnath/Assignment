@@ -1,0 +1,37 @@
+<aura:component controller="DynamicPicklist" implements="flexipage:availableForAllPageTypes,force:appHostable">
+     
+    
+    <aura:attribute name="fieldMap" type="Map"/>
+    <aura:attribute name="lead" type="Lead" />
+    <aura:attribute name="pickListValue" type="String" />
+     
+    <!--Declare Handler-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>  
+     
+    <!--Component Start-->
+    <lightning:card title="Get Picklist Value of Industry field from Lead(AURA)">
+        <div class="slds-m-around--xx-large">
+            <div class="container-fluid">
+                <div class="form-group">
+                    <lightning:select aura:id="industryPicklist" value="{!v.lead}" onchange="{!c.handleOnChange}" name="industryPicklist" label="Industry" required="true">
+                        <option value="">--None--</option>
+                        <aura:iteration items="{!v.fieldMap}" var="i" indexVar="key">
+                            <option text="{!i.value}" value="{!i.key}" selected="{!i.key==v.lead}" />
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+            </div>            
+        </div>
+        <aura:if isTrue="{!v.pickListValue}">
+            <div style="background:#ddd; border:1px #ccc solid; padding:10px; margin-top:10px;"> 
+                <div class="slds-page-header__name-title">
+                    <h4 class="slds-page-header__title">                
+                        Selected value is:- <span style="color:#ff8000; font-size:18px;">{!v.pickListValue}</span> 
+                    </h4>
+                </div>
+            </div> 
+        </aura:if>
+    </lightning:card>
+    
+        
+   </aura:component>

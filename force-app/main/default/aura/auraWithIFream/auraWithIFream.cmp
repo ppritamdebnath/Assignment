@@ -1,0 +1,3 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global">
+    <iframe src="{!'https://pritamd-dev-ed.lightning.force.com/apex/accountRecordCreatePage'}" width="100%" height="400px;"/>
+</aura:component>

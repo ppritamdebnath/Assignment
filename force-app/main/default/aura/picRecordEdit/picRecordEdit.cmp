@@ -1,0 +1,22 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+    <!--Component Start-->
+    <aura:attribute name="recordId" type="Id" />
+    <lightning:card iconName="standard:work_capacity_usage" title="Related Picturs Edit Form">
+    <div class="slds-m-around_xx-large">
+        
+            <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Picture_Field__c" aura:id="picForm">
+            <lightning:messages />
+            <lightning:inputField fieldName="Name"/>
+            <lightning:inputField fieldName="Picture_Url__c"/>
+            <lightning:inputField fieldName="UserId__c"/>
+            <lightning:inputField fieldName="Account__c" />
+            <lightning:inputField fieldName="CurrencyIsoCode" />
+            <lightning:button variant="brand" type="button" name="Save" label="Save" onclick="{!c.handleCreateAccount}" />
+        </lightning:recordEditForm>
+        
+        
+        
+    </div>
+</lightning:card>
+    <!--Component End-->
+</aura:component>

@@ -1,0 +1,55 @@
+<!--<template>
+    <lightning-card title="Users" >
+        <template if:true={users.data}>
+            <template for:each={users.data} for:item="user">
+                <lightning-layout-item key={user.Id} size="3" class="slds-var-p-around_x-small">
+                    <lightning-card title={user.Name} class="contact-tile">
+                        Hey I am A User!!!!!!
+                        <template if:true={pictures.data}>
+                            <template for:each={pictures.data} for:item="picture">
+                                <lightning-layout-item key={picture.Id} size="3" class="slds-var-p-around_x-small">
+                                   
+                                        <lightning-card class="contact-tile">
+                                            <p>User = {picture.UserId__c}</p>
+                                            <img src={picture.Picture_Url__c} height=50px; width=50px;/>
+
+                                        </lightning-card>
+                                    
+                                    
+                                </lightning-layout-item>
+                            </template>
+                        </template>
+                    </lightning-card>
+                </lightning-layout-item>
+            </template>
+        </template>
+        <template if:true={pictures.data}>
+            <template for:each={pictures.data} for:item="picture">
+                <lightning-layout-item key={picture.Id} size="3" class="slds-var-p-around_x-small">
+                    <lightning-card class="contact-tile">
+                        <img src={picture.Picture_Url__c} height=50px; width=50px;/>
+                    </lightning-card>
+                </lightning-layout-item>
+            </template>
+        </template>
+        
+    </lightning-card>
+</template>-->
+<template>
+    <lightning-card title="User Details">
+        <lightning-accordion allow-multiple-sections-open={multiple}>
+            <template if:true={users} >
+                <template for:each={users} for:item="user" >
+                    <lightning-accordion-section name={user.Name} label={user.Name} key={user.Id} onsectiontoggle={handleSectionToggle}>
+                        <template for:each={user.Picture_Fields__r} for:item="picture" >
+                            <p  key={picture.Id}>
+                                {picture.Name}
+                                <img src={picture.Picture_Url__c} height=50px; width=50px; />
+                            </p>
+                        </template>
+                    </lightning-accordion-section>
+                </template>
+            </template>
+        </lightning-accordion>
+   </lightning-card> 
+</template>

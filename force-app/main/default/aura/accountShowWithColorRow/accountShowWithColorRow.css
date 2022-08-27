@@ -1,0 +1,15 @@
+.THIS tbody tr:hover:nth-child(1) {
+    background-color: rgb(238, 52, 52);
+}
+.THIS tbody tr:hover:nth-child(2) {
+    background-color: rgb(52, 18, 201);
+}
+.THIS tbody tr:hover:nth-child(3) {
+    background-color: rgb(20, 189, 28);
+}
+.THIS tbody tr:hover:nth-child(4) {
+    background-color: rgb(223, 191, 13);
+}
+.THIS tbody tr:hover:nth-child(5) {
+    background-color: rgb(18, 201, 110);
+}

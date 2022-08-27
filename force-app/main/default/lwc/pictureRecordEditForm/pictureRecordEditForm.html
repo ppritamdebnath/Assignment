@@ -1,0 +1,19 @@
+<template>
+    <lightning-card if:true={picturedata}>
+        <lightning-layout>
+            <lightning-layout-item >
+                <lightning-record-edit-form
+                record-id={picturedata.Id}
+                object-api-name="Picture_Field__c"
+                onsuccess={handleSuccess}>
+            <lightning-input-field field-name="Name"></lightning-input-field>
+            <lightning-input-field field-name="Picture_Url__c"></lightning-input-field>
+            <lightning-input-field field-name="UserId__c"></lightning-input-field>
+            <lightning-input-field field-name="Account__c"></lightning-input-field>
+            <lightning-input-field field-name="CurrencyIsoCode"></lightning-input-field>
+            <lightning-button variant="brand" type="submit" name="save" label="Save"></lightning-button>
+                </lightning-record-edit-form>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
