@@ -7,7 +7,7 @@
                     <lightning-accordion-section name={account.Name} label={account.Name} key={account.Id} onsectiontoggle={handleSectionToggle}>
                         <template for:each={account.Picture_Fields__r} for:item="picture" >
                             <p  key={picture.Id}   >
-                                {picture.Name}
+                                {picture.Name} Yes
                                 <img src={picture.Picture_Url__c} height=50px; width=50px; 
                                 onclick={showModalBox} data-value={picture.Id} data-id={account.Id}/>
                             </p>
